@@ -1,13 +1,17 @@
 FROM debian:jessie
 MAINTAINER Tim Düsterhus
 
-VOLUME [ "/home/znc" ]
+RUN	apt-get update \
+&&	apt-get install -y libssl1.0.0 --no-install-recommends \
+&&	rm -rf /var/lib/apt/lists/*
+
+VOLUME /home/znc
 
 RUN	groupadd -r znc \
 &&	useradd -r -g znc znc \
 && 	chown znc:znc /home/znc
 
-ENV ZNC_VERSION 1.6.2
+ENV ZNC_VERSION 1.6.3
 
 RUN	buildDeps='libssl-dev g++ make curl ca-certificates' \
 &&	apt-get update && apt-get install -y $buildDeps --no-install-recommends \
@@ -23,10 +27,6 @@ RUN	buildDeps='libssl-dev g++ make curl ca-certificates' \
 &&	make -C /usr/local/src/znc install \
 &&	rm -rf /usr/local/src/znc \
 &&	apt-get purge -y --auto-remove $buildDeps
-
-RUN	apt-get update \
-&&	apt-get install -y libssl1.0.0 --no-install-recommends \
-&&	rm -rf /var/lib/apt/lists/*
 
 USER	znc
 
