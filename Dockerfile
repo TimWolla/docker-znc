@@ -16,7 +16,7 @@ ENV ZNC_VERSION 1.6.3
 RUN	buildDeps='libssl-dev g++ make curl ca-certificates' \
 &&	apt-get update && apt-get install -y $buildDeps --no-install-recommends \
 &&	rm -rf /var/lib/apt/lists/* \
-&&	curl -fsSL http://znc.in/releases/znc-$ZNC_VERSION.tar.gz -o znc.tar.gz \
+&&	curl -fsSL http://znc.in/releases/archive/znc-$ZNC_VERSION.tar.gz -o znc.tar.gz \
 &&	mkdir -p /usr/local/src/znc \
 &&	tar xvf "znc.tar.gz" -C /usr/local/src/znc --strip-components=1 \
 &&	rm "znc.tar.gz" \
