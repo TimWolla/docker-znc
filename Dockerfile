@@ -1,5 +1,4 @@
 FROM debian:jessie
-MAINTAINER Tim Düsterhus
 
 RUN	apt-get update \
 &&	apt-get install -y libssl1.0.0 --no-install-recommends \
