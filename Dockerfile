@@ -10,7 +10,7 @@ RUN	groupadd -r znc \
 &&	useradd -r -g znc znc \
 && 	chown znc:znc /home/znc
 
-ENV ZNC_VERSION 1.6.3
+ENV ZNC_VERSION 1.6.4
 
 RUN	buildDeps='libssl-dev g++ make curl ca-certificates' \
 &&	apt-get update && apt-get install -y $buildDeps --no-install-recommends \
