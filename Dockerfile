@@ -12,7 +12,7 @@ RUN	groupadd -r znc \
 
 ENV ZNC_VERSION 1.6.5
 
-RUN	buildDeps='libssl-dev libicu-dev g++ make curl libicu-dev' \
+RUN	buildDeps='libssl-dev libicu-dev g++ make curl pkg-config' \
 &&	apt-get update && apt-get install -y ca-certificates $buildDeps --no-install-recommends \
 &&	rm -rf /var/lib/apt/lists/* \
 &&	curl -fsSL http://znc.in/releases/archive/znc-$ZNC_VERSION.tar.gz -o znc.tar.gz \
