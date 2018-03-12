@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 RUN	apt-get update \
-&&	apt-get install -y libssl1.0.0 --no-install-recommends \
+&&	apt-get install -y libssl1.0.0 libicu52 --no-install-recommends \
 &&	rm -rf /var/lib/apt/lists/*
 
 VOLUME /home/znc
